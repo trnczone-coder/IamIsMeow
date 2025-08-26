@@ -1,230 +1,205 @@
 <!doctype html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>โปรไฟล์ของเหมียว — ปวรินันท์ ศรีพินิจ</title>
-  <meta name="description" content="โปรไฟล์แนะนำตัวเจ้าเหมียว ผู้มีความคิดสร้างสรรค์มากมายชอบการเรียนรู้สิ่งใหม่และการผจญภัยไปกับสิ่งที่ไม่เคยรู้" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="โปรไฟล์ออนไลน์ของเหมียว (ปวรินันท์ ศรีพินิจ) นักศึกษาปรัชญาและศาสนา ผู้สื่อสารเก่ง จัดการงานได้ดี สนใจงานเลขา/คอนเทนต์ พร้อมติดต่อได้ทันที">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="โปรไฟล์ของเหมียว — ปวรินันท์ ศรีพินิจ">
+  <meta property="og:description" content="ทักษะ ประสบการณ์ ผลงาน และช่องทางติดต่อของเหมียว">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="profile.jpg">
+  <meta property="og:url" content="https://trnczone-coder.github.io/IamIsMeow/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f6a5c0">
+  <link rel="icon" href="profile.jpg">
   <style>
     :root{
-      --ink:#231f20; --muted:#6b7280;
-      --brand:#ff4da6; --ring:rgba(255,77,166,.35);
-      --glass: rgba(255,255,255,.65); --glass-stroke: rgba(255,255,255,.58);
-      --radius: 22px;
+      --bg: #ffd1e4;
+      --glass: rgba(255,255,255,.65);
+      --text: #2a2a2a;
+      --accent: #ff6ea7;
+      --accent-2: #ff9ec3;
+      --shadow: 0 10px 30px rgba(0,0,0,.15);
     }
     *{box-sizing:border-box}
-    html,body{margin:0}
+    html,body{height:100%}
     body{
-      font-family:'Noto Sans Thai', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color:var(--ink); line-height:1.75; min-height:100dvh; background:#ffeaf5;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Noto Sans", Arial, "Helvetica Neue", sans-serif;
+      color:var(--text);
+      background:#ffd1e4;
+      overflow-x:hidden;
     }
-    /* Background image */
-    body::before{
-      content:""; position:fixed; inset:0; z-index:-3;
-      background-image:url('assets/bg-stars.webp');
-      background-size:cover; background-position:center; background-attachment:fixed;
-      filter:brightness(1) saturate(1.05);
+    /* background image */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:#ffd1e4 url('bg-pink.png') center/cover no-repeat fixed;
+      filter: saturate(1.05);
     }
-    /* Soft overlay for readability */
-    body::after{
-      content:""; position:fixed; inset:0; z-index:-2;
-      background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.42));
+    /* subtle gradient overlay */
+    .overlay{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background: radial-gradient(1200px 800px at 70% 20%, rgba(255,255,255,.35), transparent 60%),
+                  linear-gradient(to bottom, rgba(255,255,255,.2), rgba(255,255,255,0));
     }
 
-    /* Bottom character - 1/3 viewport width */
-    .bottom-char{
-      position:fixed; bottom:-8px; right:4%;
-      width:33vw; max-width:460px; min-width:220px;
-      z-index:-1; /* behind cards */
-      filter: drop-shadow(0 18px 40px rgba(0,0,0,.28));
-      animation: bob 7s ease-in-out infinite;
-      user-select:none; pointer-events:none; opacity:.96;
+    .wrap{
+      max-width: 960px;
+      margin: clamp(16px, 5vw, 48px) auto;
+      padding: clamp(12px, 3vw, 24px);
     }
-    @keyframes bob{ 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-8px) } }
 
-    /* Centered layout */
-    .wrap{min-height:100dvh; display:grid; place-items:center; padding:24px}
-    .stack{width:clamp(320px, 92vw, 980px); display:grid; gap:16px}
-
-    /* Translucent cards */
-    .glass{
+    header.card, section.card{
       background: var(--glass);
-      border: 1px solid var(--glass-stroke);
-      border-radius: var(--radius);
-      box-shadow: 0 24px 60px rgba(255,77,166,.15);
-      padding: 22px;
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 24px;
+      padding: clamp(16px, 4vw, 28px);
+      box-shadow: var(--shadow);
     }
+    .grid{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      align-items:center;
+    }
+    @media (max-width:700px){
+      .grid{grid-template-columns: 1fr; text-align:center}
+    }
+    .avatar{
+      width:140px;height:140px;border-radius:20px;object-fit:cover;
+      border:4px solid #fff; box-shadow: var(--shadow);
+    }
+    h1{font-size: clamp(28px, 4vw, 40px); margin: 0 0 6px 0}
+    .subtitle{color:#5a5a5a; margin-top:2px}
+    .btns{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      padding: 10px 16px; border-radius: 999px; border:none; cursor:pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#fff; box-shadow: var(--shadow); text-decoration:none; font-weight:600
+    }
+    .btn--ghost{ background: #fff; color:#d53477; border:1px solid #ffd0e4 }
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:#fff; margin:4px 6px 0 0; border:1px solid #ffd0e4}
+    section{margin-top:18px}
+    h2{margin:.2rem 0 1rem 0; font-size: clamp(20px, 3vw, 26px)}
+    ul{margin:0; padding-left:18px}
+    li{margin:.3rem 0}
+    .footer-note{font-size:14px; color:#555; text-align:center; margin-top:12px}
 
-    header{display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center}
-    .avatar{width:160px; height:160px; border-radius:50%; object-fit:cover;
-      border:6px solid rgba(255,255,255,.88); box-shadow:0 12px 34px rgba(255,77,166,.28)}
-    h1{margin:2px 0 0; font-size:clamp(24px, 4.6vw, 40px)}
-    .meta{color:#7b7f87; margin:2px 0 0}
-    .chips{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:8px}
-    .chip{padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.92);
-      border:1px solid rgba(255,255,255,.8); color:#8a4b64}
-
-    h2{font-size:22px; margin:0 0 8px}
-    ul{margin:6px 0 0 20px}
-    .grid{display:grid; grid-template-columns:1fr; gap:14px}
-    @media(min-width:880px){ .grid{ grid-template-columns:repeat(2,1fr)} }
-
-    .cta{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:8px}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:14px;
-      background:var(--brand); color:#fff; border:2px solid var(--brand);
-      box-shadow:0 6px 14px var(--ring); font-weight:700; text-decoration:none}
-    .btn.ghost{background:transparent; color:var(--brand)}
-
-    footer{color:#8b8f96; text-align:center}
-
-    /* Modal with centered text/links */
-    dialog{border:0; border-radius:16px; padding:0; max-width:520px; width:92%;
-      box-shadow:0 22px 70px rgba(0,0,0,.35); background:#fff}
-    .modal-header{display:flex; justify-content:space-between; align-items:center; padding:14px 18px;
-      background:linear-gradient(135deg,#ffe1ef,#fff); border-bottom:1px solid #f3e1eb}
-    .modal-header h3{margin:0; font-size:18px}
-    .modal-body{padding:18px}
-    .contact-list{display:flex; flex-direction:column; align-items:center; text-align:center}
-    .contact-list a{display:flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px; border-radius:12px; border:1px solid #eee; background:#fff; margin:8px 0;
-      width:100%; max-width:320px; text-decoration:none}
-    .close{background:transparent; border:0; font-size:22px; cursor:pointer}
-    .kbd{font-family:ui-monospace,Menlo,monospace; background:#f3f4f6; border-radius:6px; padding:2px 6px; border:1px solid #e5e7eb}
+    /* mascot at bottom */
+    .mascot{
+      position: fixed;
+      bottom: -8px;
+      right: -12px;
+      width: min(32vw, 320px);
+      z-index: 0;
+      pointer-events: none;
+      animation: floaty 6s ease-in-out infinite;
+      opacity:.92;
+      filter: drop-shadow(0 18px 24px rgba(0,0,0,.18));
+    }
+    @keyframes floaty {
+      0%,100%{ transform: translateY(0) }
+      50%{ transform: translateY(-10px) }
+    }
+    /* accessible links */
+    a{color:#b40e5a}
+    a:hover{opacity:.9}
   </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "ปวรินันท์ ศรีพินิจ",
+    "alternateName": "เหมียว",
+    "jobTitle": "Student / Personal Assistant",
+    "affiliation": "มหาวิทยาลัยเกษตรศาสตร์",
+    "birthDate": "2002-04-16",
+    "address": { "@type": "PostalAddress", "addressLocality": "กรุงเทพมหานคร", "addressCountry":"TH" },
+    "telephone": "+66879440861",
+    "url": "https://trnczone-coder.github.io/IamIsMeow/",
+    "sameAs": [
+      "https://www.instagram.com/trnc_zone",
+      "https://www.youtube.com/@trnczoneme",
+      "https://www.tiktok.com/@trnc.zone"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <img class="bottom-char" src="assets/character.webp" alt="ตัวละครตกแต่งล่างสุด">
-  <div class="wrap">
-    <div class="stack">
-      <!-- Profile Card -->
-      <section class="glass">
-        <header>
-          <picture>
-            <source srcset="assets/avatar.webp" type="image/webp"/>
-            <img class="avatar" src="assets/avatar.jpg" alt="เหมียว (ปวรินันท์)">
-          </picture>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <img class="mascot" src="mascot.png" alt="มาสคอตเหมียว ชุดนักเรียนหูกระต่าย" loading="lazy" width="640" height="860">
+
+  <main class="wrap">
+    <header class="card">
+      <div class="grid">
+        <picture>
+          <!-- If you later create a WebP, add <source type="image/webp" srcset="profile.webp"> -->
+          <img class="avatar" src="profile.jpg" alt="รูปโปรไฟล์ของเหมียว" loading="eager" width="640" height="853">
+        </picture>
+        <div>
           <h1>เหมียว — ปวรินันท์ ศรีพินิจ</h1>
-          <p class="meta">เกิด: อังคาร ที่ 16 เดือน เมษายน ปี พ.ศ.2545 · สถานที่: กรุงเทพ</p>
-          <div class="chips">
-            <span class="chip">นักศึกษาปรัชญาและศาสนา</span>
-            <span class="chip">สื่อสารดี · ใส่ใจรายละเอียด</span>
+          <div class="subtitle">นิสิตสาขาปรัชญาและศาสนา | ถนัดงานสื่อสาร ประสานงาน และจัดการตาราง | สนใจงานเลขาฯ/คอนเทนต์</div>
+          <div class="btns">
+            <a class="btn" href="tel:+66879440861">☎ โทรหาทันที</a>
+            <a class="btn btn--ghost" href="#contact">ติดต่อ / นัดหมาย</a>
+            <a class="btn" href="resume.pdf" download>⬇ ดาวน์โหลดเรซูเม่ (PDF)</a>
           </div>
-          <div class="cta">
-            <a class="btn" href="tel:0879440861">☎ โทร: 087-944-0861</a>
-            <button id="openContact" class="btn ghost" type="button">ช่องทางติดต่ออื่น ๆ</button>
+          <div style="margin-top:10px">
+            <span class="pill">สื่อสารดี</span>
+            <span class="pill">สังเกตแม่น</span>
+            <span class="pill">จัดการเวลา</span>
+            <span class="pill">ขยันและรับผิดชอบ</span>
           </div>
-        </header>
-      </section>
-
-      <!-- Goal -->
-      <section class="glass">
-        <h2>เป้าหมายในการทำงาน</h2>
-        <p>เป้าหมายของฉันคือการเรียนรู้งานและสะสมประสบการณ์จริง เพื่อพัฒนาตัวเองให้มีความเชี่ยวชาญมากขึ้น โดยใช้ทักษะการสื่อสาร การสังเกต และการจัดการ รวมถึงความขยันและความมุ่งมั่นของฉัน เพื่อสนับสนุนการทำงานขององค์กรให้มีประสิทธิภาพสูงสุด</p>
-      </section>
-
-      <!-- Education + Location -->
-      <section class="glass grid">
-        <div>
-          <h2>การศึกษา</h2>
-          <ul>
-            <li>ปริญญาตรี ปรัชญาและศาสนา — มหาวิทยาลัยเกษตรศาสตร์ (กำลังศึกษา)</li>
-            <li>ประกาศนียบัตรวิชาชีพ (ปวช.) คอมพิวเตอร์ธุรกิจ — วิทยาลัยเทคโนโลยีวิชาชีพท่าบ่อ (พ.ศ.2556)</li>
-          </ul>
         </div>
-        <div>
-          <h2>พื้นที่สะดวกทำงาน</h2>
-          <p>กรุงเทพ</p>
-        </div>
-      </section>
-
-      <!-- Skills + Strengths -->
-      <section class="glass grid">
-        <div>
-          <h2>ทักษะ (Skills)</h2>
-          <ul>
-            <li>การสื่อสาร (Communication): พูด/เขียนชัดเจน รวมถึงการทำรายงานเอกสาร</li>
-            <li>การบริหารจัดการเวลา (Time Management): วางแผนและจัดลำดับความสำคัญของงานได้ดี</li>
-            <li>คอมพิวเตอร์และเทคโนโลยี (Computer skills): Microsoft Office, Google Workspace, Canva, พื้นฐานเว็บ/โซเชียลมีเดีย</li>
-            <li>ภาษาอังกฤษ (English): สามารถสื่อสารในระดับการทำงานพื้นฐาน และพัฒนาต่อเนื่องเพื่่อการทำงานระหว่างประเทศ</li>
-          </ul>
-        </div>
-        <div>
-          <h2>ความถนัด (Strengths)</h2>
-          <ul>
-            <li>ละเอียดรอบคอบ (Detail-Oriented) ใส่ใจรายละเอียดเพื่อให้งานถูกต้องสมบูรณ์</li>
-            <li>ความรับผิดชอบสูง (Responsible) ทำงานตามกำหนดเวลาและรับผิดชอบต่อหน้าที่</li>
-            <li>ขยันและมุ่งมั่น (Hardworking &amp; Determined) ทำงานร่วมทีมและประสานงานหลายฝ่าย</li>
-            <li>แก้ปัญหาเฉพาะหน้า (Problem-Solving) ยืดหยุ่นกับสถานการณ์ไม่คาดคิด</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section class="glass">
-        <h2>ประสบการณ์</h2>
-        <p><strong>2564 – 2567 ประธานรุ่น | คณะปรัชญาและศาสนา มหาวิทยาลัยเกษตรศาสตร์</strong></p>
-        <ul>
-          <li>ตัวแทนรุ่น สื่อสารระหว่างอาจารย์และเพื่อนนิสิตกว่า 80 คน</li>
-          <li>วางแผน/ประสานงานกิจกรรมรุ่น: การประชุม การจัดกิจกรรมรับน้อง กิจกรรมแนะนำนิสิตสู่เส้นทางอาชีพ และงานเทศกาล</li>
-          <li>แก้ไขปัญหาเฉพาะหน้าและประสานความเข้าใจระหว่างนิสิตและคณาจารย์</li>
-          <li><em>ผลงาน:</em> การสื่อสารและการจัดการกิจกรรมราบรื่น ได้รับความไว้วางใจจากทั้งเพื่อนและอาจารย์</li>
-        </ul>
-        <p><strong>2565 – 2567 Teaching Assistant (TA) | มหาวิทยาลัยเกษตรศาสตร์</strong></p>
-        <ul>
-          <li>ผู้ช่วยสอนรายวิชา “ศิลปะการอยู่ร่วมกับผู้อื่น” และ “สมาธิเพื่อพลังจิต”</li>
-          <li>ช่วยอาจารย์ อธิษฐ์พัชร์ บพิธปรมัต ดูแลกิจกรรมกลุ่ม งานที่มอบหมาย และการสื่อสารกับนักศึกษา</li>
-        </ul>
-      </section>
-
-      <!-- Qualities -->
-      <section class="glass">
-        <h2>คุณสมบัติส่วนตัว (Personal Qualities)</h2>
-        <ul>
-          <li>มีความรับผิดชอบสูง</li>
-          <li>เรียนรู้เร็ว และพร้อมพัฒนาตัวเอง</li>
-          <li>มีความซื่อสัตย์และโปร่งใส</li>
-          <li>มีความมุ่งมั่นและอดทน</li>
-          <li>มีความคิดสร้างสรรค์</li>
-          <li>มีระเบียบและการจัดการที่ดี</li>
-        </ul>
-      </section>
-
-      <footer>© 2025 เหมียว — ปวรินันท์ ศรีพินิจ</footer>
-    </div>
-  </div>
-
-  <!-- Contact Modal -->
-  <dialog id="contactModal">
-    <div class="modal-header">
-      <h3>ติดต่อเหมียว</h3>
-      <button class="close" aria-label="ปิด" id="closeModal">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="contact-list">
-        <a href="tel:0879440861">☎ โทร: 087-944-0861</a>
-        <a href="https://www.instagram.com/trnc_zone/" target="_blank" rel="noopener">📸 Instagram: @trnc_zone</a>
-        <a href="https://www.youtube.com/@trnczoneme" target="_blank" rel="noopener">▶️ YouTube: @trnczoneme</a>
-        <a href="https://www.tiktok.com/@trnc.zone" target="_blank" rel="noopener">🎵 TikTok: @trnc.zone</a>
       </div>
-      <p style="color:#777;margin-top:10px;text-align:center">กด <span class="kbd">Esc</span> เพื่อปิด</p>
-    </div>
-  </dialog>
+    </header>
 
-  <script>
-    const modal = document.getElementById('contactModal');
-    const openBtn = document.getElementById('openContact');
-    const closeBtn = document.getElementById('closeModal');
-    openBtn.addEventListener('click', ()=> modal.showModal());
-    closeBtn.addEventListener('click', ()=> modal.close());
-    modal.addEventListener('click', (e)=>{
-      const rect = modal.getBoundingClientRect();
-      const inside = e.clientX>=rect.left && e.clientX<=rect.right && e.clientY>=rect.top && e.clientY<=rect.bottom;
-      if(!inside) modal.close();
-    });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') modal.close(); });
-  </script>
+    <section class="card">
+      <h2 id="about">เกี่ยวกับฉัน</h2>
+      <p>กำลังศึกษาอยู่ที่มหาวิทยาลัยเกษตรศาสตร์ สนใจงานที่ได้ช่วยจัดการตาราง ประสานงาน และดูแลงานเอกสาร/คอนเทนต์ มีประสบการณ์เป็นประธานรุ่นและผู้ช่วยอาจารย์ (TA) ในรายวิชาเกี่ยวกับการอยู่ร่วมกับผู้อื่นและสมาธิ</p>
+    </section>
+
+    <section class="card">
+      <h2>ทักษะเด่น</h2>
+      <ul>
+        <li>การสื่อสารและการประสานงาน (สรุปประเด็น นัดหมาย และติดตามงาน)</li>
+        <li>การบริหารเวลาและงานเอกสาร</li>
+        <li>คอมพิวเตอร์พื้นฐาน/เว็บ (GitHub Pages, Canva, Pages)</li>
+        <li>ภาษาอังกฤษเพื่อการทำงาน</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>ประสบการณ์ที่เกี่ยวข้อง</h2>
+      <ul>
+        <li>ประธานรุ่น — ประสานงานนิสิตกว่า 80 คนกับอาจารย์และฝ่ายกิจการนิสิต จัดกิจกรรม/ประกาศ และสรุปข้อมูล</li>
+        <li>ผู้ช่วยสอน (TA) — สนับสนุนงานรายวิชา, จัดการสื่อสาร/เอกสาร และติดตามงานนักศึกษา</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>ติดต่อเหมียว</h2>
+      <p><strong>โทร:</strong> <a href="tel:+66879440861">087-944-0861</a></p>
+      <p><strong>โซเชียล:</strong>
+        <a href="https://www.instagram.com/trnc_zone" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.youtube.com/@trnczoneme" target="_blank" rel="noopener">YouTube</a> ·
+        <a href="https://www.tiktok.com/@trnc.zone" target="_blank" rel="noopener">TikTok</a>
+      </p>
+      <p class="footer-note">เพื่อความเป็นส่วนตัว เบอร์โทรจะแสดงเฉพาะส่วนติดต่อ (ไม่ซ้ำที่หัวหน้า)</p>
+    </section>
+
+    <p class="footer-note">© 2025 Meow — All rights reserved.</p>
+  </main>
 </body>
 </html>
